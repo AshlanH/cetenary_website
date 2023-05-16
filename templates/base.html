@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smokum&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Smokum&family=Teko:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<center>
+    <h1 id="page_header">Centenary - The Online Record Market</h1>
+</center>
+<hr width = 75%, align="left">
+<hr width =65%, align="right">
+
+<table width = 100%>
+    <tr>
+        <td width = 70%>
+            <table>
+                <tr>
+                    <th>
+                        <input type="button", value="Store", class="menu_button">
+                    </th>
+                    <th>
+                        <input type="button", value="Cart", class="menu_button">
+                    </th>
+                    <th>
+                        <input type="button", value="More", class="menu_button">
+                    </th>
+                </tr>
+
+            </table>
+        </td>
+        <td rowspan="2">{% block information_panel %} {% endblock %}</td>
+    </tr>
+    <tr height="700px"> 
+        <td valign="top"><br>{% block menu_panel %} {% endblock %}</td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

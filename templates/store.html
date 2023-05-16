@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block menu_panel %}
+    <table width = 100%>
+        <tr>
+            <th align="left">Name</th>
+            <th align="left">Artist</th>
+            <th align="left">Genre</th>
+            <th align="left">Price</th>
+        </tr>
+        <tr><td colspan="4"> 
+            {% for book in books %} Pekfdso {% endfor %}
+            <!-- {% for book in books %}
+                <h3>#{{ book[0] }} - {{ book[1] }} BY {{ book[2] }}</h3>
+                <i><p>({{ book[3] }} pages)</p></i>
+                <p>{{ book[4] }}</p>
+                <i><p>Added {{ book[5] }}</p></i>
+            {% endfor %} -->
+        </td></tr>
+    </table>
+{% endblock %}
+
+{% block information_panel %}
+    <p> Information Panel to display more information on related album</p>
+
+    
+{% endblock %}
