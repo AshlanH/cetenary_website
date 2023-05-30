@@ -14,20 +14,19 @@
 </center>
 <hr width = 75%, align="left">
 <hr width =65%, align="right">
-
 <table width = 100%>
     <tr>
         <td width = 70%>
             <table>
                 <tr>
                     <th>
-                        <input type="button", value="Store", class="menu_button">
+                        <a href="{{ url_for('store') }}"><input type="button", value="Store", class="nav_button", ></a>
                     </th>
                     <th>
-                        <input type="button", value="Cart", class="menu_button">
+                        <input type="button", value="Cart", class="nav_button">
                     </th>
                     <th>
-                        <input type="button", value="More", class="menu_button">
+                        <input type="button", value="More", class="nav_button">
                     </th>
                 </tr>
 
@@ -35,7 +34,7 @@
         </td>
         <td rowspan="2">{% block information_panel %} {% endblock %}</td>
     </tr>
-    <tr height="700px"> 
+    <tr> 
         <td valign="top"><br>{% block menu_panel %} {% endblock %}</td>
     </tr>
 </table>

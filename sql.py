@@ -2,13 +2,11 @@ import psycopg2
 import pandas as pd
 
 hostname = 'localhost'
-database = 'exercises'
+database = 'cetenary_project'
 username = 'postgres'
 pwd = '472112'
 port_id = 5432
 conn, cur = None, None
-
-
 try:
     conn = psycopg2.connect(
         host = hostname,
@@ -19,15 +17,12 @@ try:
     )
     cur = conn.cursor()
 
-    # script portion 
-
-    script = "SELECT * FROM menu"
+    script = "SELECT * FROM vinyl"
 
     cur.execute(script)
     output = cur.fetchall()
-
-    df = pd.DataFrame(data = output, columns = ['Item', 'Price', 'Description', 'ID'])
-    print(df)
+    for a in output:
+        print(a)
 
 except Exception as e:
     print(e)

@@ -3,19 +3,30 @@
 {% block menu_panel %}
     <table width = 100%>
         <tr>
-            <th align="left">Name</th>
-            <th align="left">Artist</th>
-            <th align="left">Genre</th>
-            <th align="left">Price</th>
+            <th width = 30% align="left" id = 'menu_header'>Name</th>
+            <th width = 30% align="left" id = 'menu_header'>Artist</th>
+            <th width = 25% align="left" id = 'menu_header'>Genre</th>
+            <th width = 15% align="left" id = 'menu_header'>Price</th>
         </tr>
         <tr><td colspan="4"> 
-            {% for book in books %} Pekfdso {% endfor %}
-            <!-- {% for book in books %}
-                <h3>#{{ book[0] }} - {{ book[1] }} BY {{ book[2] }}</h3>
-                <i><p>({{ book[3] }} pages)</p></i>
-                <p>{{ book[4] }}</p>
-                <i><p>Added {{ book[5] }}</p></i>
-            {% endfor %} -->
+            <div class="menu_container">
+                <table width = 100%  class = 'menu'>
+                    {% for each in menu %}
+                        <tr padding="10px">
+                        <td width = 30%>{{ each[1] }}</td>
+                        <td width = 30%>{{ each[2] }}</td>
+                        <td width = 25%>{{ each[3] }}</td>
+                        <td width = 25%>{{ each[3] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </td></tr>
+        <tr><td>
+            <form method="POST">
+                <input type="submit" name="submit_button" value="fsdfs">
+                <input type="submit" name="submit_button" value="2">
+            </form>
         </td></tr>
     </table>
 {% endblock %}
