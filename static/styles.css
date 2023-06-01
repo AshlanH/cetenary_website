@@ -1,5 +1,5 @@
 body {
-  background-color: #f7f7f7;
+  background-color: #f5f2f2;
   font-family: 'lato', sans-serif;
 }
 
@@ -16,7 +16,31 @@ body {
 
 #menu_header {
   font-family: 'Teko', sans-serif;
-  font-size: 25px;
+  font-size: 30px;
+  color:rgb(65, 61, 61)
+}
+
+#menu_items {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+}
+
+.menu_button {
+  border: 1px solid rgb(179, 174, 174);
+  line-height: 2.5;
+  padding: 2px 20px;
+  font-size: 18px;
+  font-family: 'Teko', sans-serif;
+  text-align: center;
+  color: #000000;
+  border-radius: 1px;
+  background-color: #fffafa;
+}
+
+.menu_button:hover{
+  background-color: black;
+  color: #f7f7f7;
+  cursor: pointer;
 }
 
 .nav_button {
@@ -28,12 +52,13 @@ body {
   text-align: center;
   color: #000000;
   border-radius: 1px;
-  background-color: #f7f7f7;
+  background-color: #fffafa;
 }
 
 .nav_button:hover {
   background-color: black;
   color: #f7f7f7;
+  cursor: pointer;
 }
 
 .nav_button:active {
@@ -41,11 +66,12 @@ body {
 }
 
 table.menu{
-  border-spacing: 0 20px;
+  /* border-spacing: 0 20px; */
   /* display: block; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* border: 3px solid rgb(179, 174, 174); */
   overflow-y: auto;
+  /* padding-left: 1%; */
 }
 
 table.menu tr,

@@ -1,23 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
-import psycopg2
-import os
+import sql_query
 
 app = Flask(__name__)
-
-def get_db_connection():
-    conn = psycopg2.connect(host='localhost',
-                            dbname='cetenary_project',
-                            user='postgres',
-                            password='472112',
-                            port=5432
-    )
-    return conn
-
-temp=[['Input1', 'Input2', 'Input3', 'Input4', 'Input5'],
-       ['Input1', 'Input2', 'Input3', 'Input4', 'Input5'],
-       ['Input1', 'Input2', 'Input3', 'Input4', 'Input5'],
-       ['Input1', 'Input2', 'Input3', 'Input4', 'Input5'],
-       ['Input1', 'Input2', 'Input3', 'Input4', 'Input5']]
 
 @app.route('/')
 def home():
@@ -26,22 +10,20 @@ def home():
 @app.route('/store', methods=['POST', 'GET'])
 def store():
     if request.method == 'POST':
-        if request.form.get('submit_button') == '1':
-            return redirect(url_for('buffer', buffer_input = request.form.get('submit_button')))
-        elif request.form.get('submit_button') == '2':
-            return redirect(url_for('buffer', buffer_input = request.form.get('submit_button')))
-        else:   
-            return render_template('base.html')
+        return redirect(url_for('buffer', buffer_input = request.form.get('submission_identifier')))
+    
     elif request.method == 'GET':
-        conn = get_db_connection()
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM vinyl")
-        return render_template('store.html', menu = cur.fetchall())
+        # cur.execute("SELECT v.vinyl_id, v.name, v.artist, array_agg(t.tag_name)\
+        #             FROM vinyl v\
+        #             LEFT JOIN vinyl_tag vt ON v.vinyl_id = vt.vinyl_id\
+        #             LEFT JOIN tag t ON vt.tag_id = t.tag_id\
+        #             GROUP BY v.vinyl_id ORDER BY vinyl_id\
+        #             LIMIT 5 OFFSET 2;")
+        return render_template('store.html', menu = sql_query.get_items(10, 0))
 
 @app.route('/buffer/<buffer_input>')
 def buffer(buffer_input):
-    return f"<h1>Passde value: {buffer_input} </h1>"
-
+    return f"<h1>Passed value: {buffer_input} </h1>"
 
 if __name__ == "__main__":
       app.run(debug=True)
